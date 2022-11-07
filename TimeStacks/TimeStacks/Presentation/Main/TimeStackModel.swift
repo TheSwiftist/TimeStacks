@@ -9,6 +9,7 @@ import Foundation
 
 struct TimeStackModel: Identifiable {
     var id = UUID().uuidString
+    let index: Int
     let title: String
     let duration: Double
 }

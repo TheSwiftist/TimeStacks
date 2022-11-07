@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct ContentView: View {
-    let stacks: [TimeStackModel] = [
-        TimeStackModel(title: "1", duration: 10),
-        TimeStackModel(title: "2", duration: 10),
-        TimeStackModel(title: "3", duration: 10),
-        TimeStackModel(title: "4", duration: 10)
+    let models: [TimeStackModel] = [
+        TimeStackModel(index: 0, title: "1", duration: 10),
+        TimeStackModel(index: 1, title: "2", duration: 10),
+        TimeStackModel(index: 2, title: "3", duration: 10),
+        TimeStackModel(index: 3, title: "4", duration: 10)
     ]
     var body: some View {
         ZStack {
-            ForEach(stacks) { stack in
-                TimeStackView()
+            ForEach(models) { model in
+                TimeStackView(model: model)
             }
         }
         .padding(.top, 100)
