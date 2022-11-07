@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AC2917D890004E29F7 /* TimeStackView.swift */; };
+		ED5775AF2917DB42004E29F7 /* TimeStackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AE2917DB42004E29F7 /* TimeStackModel.swift */; };
 		EDA0BC3D29101930009B01A3 /* TimeStacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */; };
 		EDA0BC3F29101930009B01A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0BC3E29101930009B01A3 /* ContentView.swift */; };
 		EDA0BC4129101933009B01A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA0BC4029101933009B01A3 /* Assets.xcassets */; };
@@ -14,6 +16,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED5775AC2917D890004E29F7 /* TimeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackView.swift; sourceTree = "<group>"; };
+		ED5775AE2917DB42004E29F7 /* TimeStackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackModel.swift; sourceTree = "<group>"; };
 		EDA0BC3929101930009B01A3 /* TimeStacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksApp.swift; sourceTree = "<group>"; };
 		EDA0BC3E29101930009B01A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -79,6 +83,8 @@
 			children = (
 				EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */,
 				EDA0BC3E29101930009B01A3 /* ContentView.swift */,
+				ED5775AC2917D890004E29F7 /* TimeStackView.swift */,
+				ED5775AE2917DB42004E29F7 /* TimeStackModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -154,6 +160,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDA0BC3F29101930009B01A3 /* ContentView.swift in Sources */,
+				ED5775AF2917DB42004E29F7 /* TimeStackModel.swift in Sources */,
+				ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */,
 				EDA0BC3D29101930009B01A3 /* TimeStacksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
