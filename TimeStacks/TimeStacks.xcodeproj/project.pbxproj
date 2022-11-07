@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AC2917D890004E29F7 /* TimeStackView.swift */; };
 		ED5775AF2917DB42004E29F7 /* TimeStackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AE2917DB42004E29F7 /* TimeStackModel.swift */; };
+		ED5775B329193493004E29F7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775B229193493004E29F7 /* View+Extensions.swift */; };
 		EDA0BC3D29101930009B01A3 /* TimeStacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */; };
 		EDA0BC3F29101930009B01A3 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0BC3E29101930009B01A3 /* ContentView.swift */; };
 		EDA0BC4129101933009B01A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA0BC4029101933009B01A3 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* Begin PBXFileReference section */
 		ED5775AC2917D890004E29F7 /* TimeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackView.swift; sourceTree = "<group>"; };
 		ED5775AE2917DB42004E29F7 /* TimeStackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackModel.swift; sourceTree = "<group>"; };
+		ED5775B229193493004E29F7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
 		EDA0BC3929101930009B01A3 /* TimeStacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksApp.swift; sourceTree = "<group>"; };
 		EDA0BC3E29101930009B01A3 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -36,6 +38,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ED5775B029193479004E29F7 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				ED5775B129193488004E29F7 /* Extensions */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		ED5775B129193488004E29F7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				ED5775B229193493004E29F7 /* View+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		EDA0BC3029101930009B01A3 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +73,7 @@
 		EDA0BC3B29101930009B01A3 /* TimeStacks */ = {
 			isa = PBXGroup;
 			children = (
+				ED5775B029193479004E29F7 /* Common */,
 				EDA0BC4A29101938009B01A3 /* Presentation */,
 				EDA0BC4029101933009B01A3 /* Assets.xcassets */,
 				EDA0BC4229101933009B01A3 /* Preview Content */,
@@ -162,6 +181,7 @@
 				EDA0BC3F29101930009B01A3 /* ContentView.swift in Sources */,
 				ED5775AF2917DB42004E29F7 /* TimeStackModel.swift in Sources */,
 				ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */,
+				ED5775B329193493004E29F7 /* View+Extensions.swift in Sources */,
 				EDA0BC3D29101930009B01A3 /* TimeStacksApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
