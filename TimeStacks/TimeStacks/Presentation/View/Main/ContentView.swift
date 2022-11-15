@@ -8,16 +8,21 @@
 import SwiftUI
 
 struct ContentView: View {
-    let models: [TimeStackModel] = [
+    @StateObject var viewModel: TimeStacksViewModel = TimeStacksViewModel(timeStackModels: [
         TimeStackModel(index: 0, title: "1", duration: 10),
         TimeStackModel(index: 1, title: "2", duration: 10),
         TimeStackModel(index: 2, title: "3", duration: 10),
         TimeStackModel(index: 3, title: "4", duration: 10)
-    ]
+    ])
     var body: some View {
         ZStack {
-            ForEach(models) { model in
-                TimeStackView(model: model)
+            if let timeStacks = viewModel.displayedTimeStacks {
+                ForEach(timeStacks) { model in
+                    TimeStackView(model: model)
+                        .environmentObject(viewModel)
+                }
+            } else {
+                ProgressView()
             }
         }
         .padding(.top, 100)
