@@ -9,7 +9,6 @@ import SwiftUI
 
 struct TimeStackViewModel: Identifiable {
     var id = UUID().uuidString
-    let index: Int
     let title: String
     let duration: Double
     @State var offset: CGFloat = 0

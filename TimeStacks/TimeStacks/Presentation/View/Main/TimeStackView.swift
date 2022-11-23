@@ -102,8 +102,7 @@ extension TimeStackView {
 // MARK: - PreviewProvider
 struct TimeStackView_Previews: PreviewProvider {
     static var previews: some View {
-        TimeStackView(viewModel: TimeStackViewModel(index: 0,
-                                                    title: "test",
+        TimeStackView(viewModel: TimeStackViewModel(title: "test",
                                                     duration: 1))
     }
 }
