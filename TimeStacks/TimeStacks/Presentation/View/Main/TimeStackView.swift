@@ -8,17 +8,21 @@
 import SwiftUI
 
 struct TimeStackView: View {
-    @EnvironmentObject var timeStacksViewModel: TimeStacksViewModel
-    let model: TimeStackModel
+    @EnvironmentObject var mainViewModel: TimeStacksMainViewModel
+    private let viewModel: TimeStackViewModel
     @State var offset: CGFloat = 0
     @GestureState var isDragging: Bool = false
     @State var endSwipe: Bool = false
+    
+    init(viewModel: TimeStackViewModel) {
+        self.viewModel = viewModel
+    }
     
     var body: some View {
         GeometryReader { reader in
             let width = reader.size.width
             let height = reader.size.height
-            let index = CGFloat(timeStacksViewModel.getIndex(of: model))
+            let index = CGFloat(mainViewModel.getIndex(of: viewModel))
             let topOffset = (index <= 2 ? index : 2) * 15
             
             ZStack {
@@ -70,9 +74,9 @@ extension TimeStackView {
         withAnimation(.none) { endSwipe = true }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if let _ = timeStacksViewModel.displayedTimeStacks?.first {
+            if let _ = mainViewModel.displayedTimeStacks?.first {
                 let _ = withAnimation {
-                    timeStacksViewModel.displayedTimeStacks?.removeFirst()
+                    mainViewModel.displayedTimeStacks?.removeFirst()
                 }
             }
         }
@@ -81,7 +85,7 @@ extension TimeStackView {
 
 struct TimeStackView_Previews: PreviewProvider {
     static var previews: some View {
-        TimeStackView(model: TimeStackModel(index: 0,
+        TimeStackView(viewModel: TimeStackViewModel(index: 0,
                                             title: "test",
                                             duration: 1))
     }

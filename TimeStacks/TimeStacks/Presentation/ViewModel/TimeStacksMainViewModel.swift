@@ -7,16 +7,16 @@
 
 import Foundation
 
-final class TimeStacksViewModel: ObservableObject {
-    @Published var timeStackModels: [TimeStackModel]
-    @Published var displayedTimeStacks: [TimeStackModel]?
+final class TimeStacksMainViewModel: ObservableObject {
+    @Published var timeStackModels: [TimeStackViewModel]
+    @Published var displayedTimeStacks: [TimeStackViewModel]?
     
-    init(timeStackModels: [TimeStackModel]) {
+    init(timeStackModels: [TimeStackViewModel]) {
         self.timeStackModels = timeStackModels
         self.displayedTimeStacks = timeStackModels
     }
     
-    func getIndex(of targetTimeStack: TimeStackModel) -> Int {
+    func getIndex(of targetTimeStack: TimeStackViewModel) -> Int {
         return displayedTimeStacks?.firstIndex(where: { timeStack in
             return timeStack.id == targetTimeStack.id
         }) ?? 0

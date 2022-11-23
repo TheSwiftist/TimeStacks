@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TimeStackModel: Identifiable {
+struct TimeStackViewModel: Identifiable {
     var id = UUID().uuidString
     let index: Int
     let title: String
