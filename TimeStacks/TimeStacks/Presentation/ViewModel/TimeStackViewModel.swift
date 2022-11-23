@@ -16,6 +16,7 @@ struct TimeStackViewModel: Identifiable {
     @GestureState var isDragging: Bool = false
     @State var endSwipe: Bool = false
     
+    // MARK: - Internal Methods
     func calculateTopOffset(index: CGFloat) -> CGFloat {
         return (index <= 2 ? index : 2) * 15
     }

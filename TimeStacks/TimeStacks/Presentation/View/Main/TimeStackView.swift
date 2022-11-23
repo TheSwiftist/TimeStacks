@@ -8,18 +8,21 @@
 import SwiftUI
 
 struct TimeStackView: View {
-    @EnvironmentObject var mainViewModel: TimeStacksMainViewModel
+    // MARK: - Properties
+    @EnvironmentObject var parentViewModel: TimeStacksMainViewModel
     private let viewModel: TimeStackViewModel
     
+    // MARK: - Initializer
     init(viewModel: TimeStackViewModel) {
         self.viewModel = viewModel
     }
     
+    // MARK: - View Body
     var body: some View {
         GeometryReader { reader in
             let width = reader.size.width
             let height = reader.size.height
-            let index = CGFloat(mainViewModel.getIndex(of: viewModel))
+            let index = CGFloat(parentViewModel.getIndex(of: viewModel))
             let topOffset = viewModel.calculateTopOffset(index: index)
             
             ZStack {
@@ -42,24 +45,10 @@ struct TimeStackView: View {
                     out = true
                 })
                 .onChanged({ value in
-                    let translation = value.translation.width
-                    viewModel.offset = (viewModel.isDragging ? translation : .zero)
+                    handleSwiping(with: value)
                 })
                 .onEnded({ value in
-                    let width = getRect().width - 50
-                    let translation = value.translation.width
-                    let checkingStatus = (translation > 0 ? translation : -translation)
-                    
-                    withAnimation {
-                        if checkingStatus > (width / 2) {
-                            // remove card
-                            viewModel.offset = (translation > 0 ? width : -width) * 2
-                            viewModel.endSwipe = true
-                        } else {
-                            //reset
-                            viewModel.offset = .zero
-                        }
-                    }
+                    handleSwipeEnded(with: value)
                 })
         )
     }
@@ -71,19 +60,50 @@ extension TimeStackView {
         withAnimation(.none) { viewModel.endSwipe = true }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if let _ = mainViewModel.displayedTimeStacks?.first {
+            if let _ = parentViewModel.displayedTimeStacks?.first {
                 let _ = withAnimation {
-                    mainViewModel.displayedTimeStacks?.removeFirst()
+                    parentViewModel.displayedTimeStacks?.removeFirst()
                 }
             }
         }
     }
+    
+    private func handleSwiping(with value: GestureStateGesture<DragGesture, Bool>.Value) {
+        let translation = value.translation.width
+        viewModel.offset = (viewModel.isDragging ? translation : .zero)
+    }
+    
+    private func handleSwipeEnded(with value: GestureStateGesture<DragGesture, Bool>.Value) {
+        let width = getRect().width - 50
+        let translation = value.translation.width
+        let checkingStatus = (translation > 0 ? translation : -translation)
+        
+        func removeCard() {
+            viewModel.offset = (translation > 0 ? width : -width) * 2
+            viewModel.endSwipe = true
+        }
+        
+        func reset() {
+            viewModel.offset = .zero
+        }
+        
+        withAnimation {
+            if checkingStatus > (width / 2) {
+                removeCard()
+            } else {
+                reset()
+            }
+        }
+    }
+    
+
 }
 
+// MARK: - PreviewProvider
 struct TimeStackView_Previews: PreviewProvider {
     static var previews: some View {
         TimeStackView(viewModel: TimeStackViewModel(index: 0,
-                                            title: "test",
-                                            duration: 1))
+                                                    title: "test",
+                                                    duration: 1))
     }
 }
