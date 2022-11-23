@@ -11,7 +11,7 @@ import SwiftUI
 struct TimeStacksApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TimeStacksMainView()
         }
     }
 }
