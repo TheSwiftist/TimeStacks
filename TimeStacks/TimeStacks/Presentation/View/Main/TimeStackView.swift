@@ -10,9 +10,6 @@ import SwiftUI
 struct TimeStackView: View {
     @EnvironmentObject var mainViewModel: TimeStacksMainViewModel
     private let viewModel: TimeStackViewModel
-    @State var offset: CGFloat = 0
-    @GestureState var isDragging: Bool = false
-    @State var endSwipe: Bool = false
     
     init(viewModel: TimeStackViewModel) {
         self.viewModel = viewModel
@@ -23,13 +20,13 @@ struct TimeStackView: View {
             let width = reader.size.width
             let height = reader.size.height
             let index = CGFloat(mainViewModel.getIndex(of: viewModel))
-            let topOffset = (index <= 2 ? index : 2) * 15
+            let topOffset = viewModel.calculateTopOffset(index: index)
             
             ZStack {
                 VStack {
                     Color.blue
                 }
-                .frame(width: width, // - topOffset
+                .frame(width: width,
                        height: height / 3,
                        alignment: .center)
                 .cornerRadius(20)
@@ -37,16 +34,16 @@ struct TimeStackView: View {
                 .offset(y: -topOffset)
             }
         }
-        .offset(x: offset)
-        .contentShape(Rectangle().trim(from: 0, to: endSwipe ? 0 : 1))
+        .offset(x: viewModel.offset)
+        .contentShape(Rectangle().trim(from: 0, to: viewModel.endSwipe ? 0 : 1))
         .gesture(
             DragGesture()
-                .updating($isDragging, body: { value, out, _ in
+                .updating(viewModel.$isDragging, body: { value, out, _ in
                     out = true
                 })
                 .onChanged({ value in
                     let translation = value.translation.width
-                    offset = (isDragging ? translation : .zero)
+                    viewModel.offset = (viewModel.isDragging ? translation : .zero)
                 })
                 .onEnded({ value in
                     let width = getRect().width - 50
@@ -56,11 +53,11 @@ struct TimeStackView: View {
                     withAnimation {
                         if checkingStatus > (width / 2) {
                             // remove card
-                            offset = (translation > 0 ? width : -width) * 2
-                            endSwipe = true
+                            viewModel.offset = (translation > 0 ? width : -width) * 2
+                            viewModel.endSwipe = true
                         } else {
                             //reset
-                            offset = .zero
+                            viewModel.offset = .zero
                         }
                     }
                 })
@@ -71,7 +68,7 @@ struct TimeStackView: View {
 // MARK: - Private Methods
 extension TimeStackView {
     private func endSwipeActions() {
-        withAnimation(.none) { endSwipe = true }
+        withAnimation(.none) { viewModel.endSwipe = true }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if let _ = mainViewModel.displayedTimeStacks?.first {

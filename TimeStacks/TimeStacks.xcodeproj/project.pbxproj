@@ -54,6 +54,7 @@
 			isa = PBXGroup;
 			children = (
 				ED1BF2A02923C57200F4D731 /* TimeStacksMainViewModel.swift */,
+				ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -122,7 +123,6 @@
 			isa = PBXGroup;
 			children = (
 				ED5775AC2917D890004E29F7 /* TimeStackView.swift */,
-				ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
