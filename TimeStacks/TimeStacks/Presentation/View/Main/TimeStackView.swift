@@ -58,8 +58,7 @@ struct TimeStackView: View {
                     // TODO: - 여기서 팝업 띄우기 (삭제할건지 완료 처리 할건지)
                 })
                 .onEnded({ value in
-                    viewModel.handleSwipeEnded(width: getRect().width - 50,
-                                     value: value)
+                    viewModel.handleSwipeEnded(width: getRect().width - 50, value: value)
                 })
         )
     }
@@ -85,7 +84,6 @@ extension TimeStackView {
 
 struct TimeStackView_Previews: PreviewProvider {
     static var previews: some View {
-        TimeStackView(viewModel: TimeStackViewModel(title: "test",
-                                                    duration: 1))
+        TimeStackView(viewModel: TimeStackViewModel(title: "test", duration: 1))
     }
 }
