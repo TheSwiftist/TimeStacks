@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimeStacksMainView: View {
     // MARK: - Properties
+    
     @StateObject var viewModel: TimeStacksMainViewModel = TimeStacksMainViewModel(
         timeStackModels: [TimeStackViewModel(title: "1", duration: 10),
                           TimeStackViewModel(title: "2", duration: 10),
@@ -17,6 +18,7 @@ struct TimeStacksMainView: View {
     )
     
     // MARK: - View Body
+    
     var body: some View {
         ZStack {
             if let timeStacks = viewModel.displayedTimeStacks {
@@ -36,6 +38,7 @@ struct TimeStacksMainView: View {
 }
 
 // MARK: - PreviewProvider
+
 struct TimeStacksMainView_Previews: PreviewProvider {
     static var previews: some View {
         TimeStacksMainView()

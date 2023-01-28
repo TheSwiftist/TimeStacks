@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TimeStackView: View {
     // MARK: - Properties
+    
     @EnvironmentObject var parentViewModel: TimeStacksMainViewModel
     private let viewModel: TimeStackViewModel
     
@@ -17,11 +18,13 @@ struct TimeStackView: View {
     @State var endSwipe: Bool = false
     
     // MARK: - Initializer
+    
     init(viewModel: TimeStackViewModel) {
         self.viewModel = viewModel
     }
     
     // MARK: - View Body
+    
     var body: some View {
         GeometryReader { reader in
             let width = reader.size.width
@@ -59,6 +62,7 @@ struct TimeStackView: View {
 }
 
 // MARK: - Private Methods
+
 extension TimeStackView {
     private func endSwipeActions() {
         withAnimation(.none) { endSwipe = true }
@@ -104,6 +108,7 @@ extension TimeStackView {
 }
 
 // MARK: - PreviewProvider
+
 struct TimeStackView_Previews: PreviewProvider {
     static var previews: some View {
         TimeStackView(viewModel: TimeStackViewModel(title: "test",

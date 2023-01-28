@@ -13,6 +13,7 @@ struct TimeStackViewModel: Identifiable {
     let duration: Double
     
     // MARK: - Internal Methods
+    
     func calculateTopOffset(index: CGFloat) -> CGFloat {
         return (index <= 2 ? index : 2) * 15
     }
