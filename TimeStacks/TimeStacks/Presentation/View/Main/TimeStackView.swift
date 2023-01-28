@@ -54,11 +54,12 @@ struct TimeStackView: View {
                     out = true
                 })
                 .onChanged({ value in
-                    handleSwiping(with: value)
+                    viewModel.handleSwiping(isDragging: isDragging, value: value)
                     // TODO: - 여기서 팝업 띄우기 (삭제할건지 완료 처리 할건지)
                 })
                 .onEnded({ value in
-                    handleSwipeEnded(with: value)
+                    viewModel.handleSwipeEnded(width: getRect().width - 50,
+                                     value: value)
                 })
         )
     }
@@ -78,36 +79,6 @@ extension TimeStackView {
             }
         }
     }
-    
-    private func handleSwiping(with value: GestureStateGesture<DragGesture, Bool>.Value) {
-        let translation = value.translation.width
-        viewModel.offset = (isDragging ? translation : .zero)
-    }
-    
-    private func handleSwipeEnded(with value: GestureStateGesture<DragGesture, Bool>.Value) {
-        let width = getRect().width - 50
-        let translation = value.translation.width
-        let checkingStatus = (translation > 0 ? translation : -translation)
-        
-        func removeCard() {
-            viewModel.offset = (translation > 0 ? width : -width) * 2
-            viewModel.endSwipe = true
-        }
-        
-        func reset() {
-            viewModel.offset = .zero
-        }
-        
-        withAnimation {
-            if checkingStatus > (width / 2) {
-                removeCard()
-            } else {
-                reset()
-            }
-        }
-    }
-    
-
 }
 
 // MARK: - PreviewProvider

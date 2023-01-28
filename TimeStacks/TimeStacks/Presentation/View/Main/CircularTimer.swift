@@ -9,7 +9,9 @@ import SwiftUI
 
 struct CircularTimer: View {
     @State private var progress: Double = 0
-    @State private var timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
+    @State private var timer = Timer.publish(every: 1, on: .main, in: .common)
+        .autoconnect()
+    
     var body: some View {
         ZStack {
             CircularProgressView(progress: $progress)
@@ -30,6 +32,7 @@ struct CircularTimer: View {
 
 struct CircularProgressView: View {
     @Binding var progress: Double
+    
     var body: some View {
         ZStack {
             Circle()
