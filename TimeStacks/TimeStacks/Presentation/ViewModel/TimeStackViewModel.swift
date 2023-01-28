@@ -11,9 +11,6 @@ struct TimeStackViewModel: Identifiable {
     var id = UUID().uuidString
     let title: String
     let duration: Double
-    @State var offset: CGFloat = 0
-    @GestureState var isDragging: Bool = false
-    @State var endSwipe: Bool = false
     
     // MARK: - Internal Methods
     func calculateTopOffset(index: CGFloat) -> CGFloat {

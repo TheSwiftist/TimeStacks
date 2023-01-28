@@ -12,6 +12,10 @@ struct TimeStackView: View {
     @EnvironmentObject var parentViewModel: TimeStacksMainViewModel
     private let viewModel: TimeStackViewModel
     
+    @State var offset: CGFloat = 0
+    @GestureState var isDragging: Bool = false
+    @State var endSwipe: Bool = false
+    
     // MARK: - Initializer
     init(viewModel: TimeStackViewModel) {
         self.viewModel = viewModel
@@ -37,11 +41,11 @@ struct TimeStackView: View {
                 .offset(y: -topOffset)
             }
         }
-        .offset(x: viewModel.offset)
-        .contentShape(Rectangle().trim(from: 0, to: viewModel.endSwipe ? 0 : 1))
+        .offset(x: offset)
+        .contentShape(Rectangle().trim(from: 0, to: endSwipe ? 0 : 1))
         .gesture(
             DragGesture()
-                .updating(viewModel.$isDragging, body: { value, out, _ in
+                .updating($isDragging, body: { value, out, _ in
                     out = true
                 })
                 .onChanged({ value in
@@ -57,7 +61,7 @@ struct TimeStackView: View {
 // MARK: - Private Methods
 extension TimeStackView {
     private func endSwipeActions() {
-        withAnimation(.none) { viewModel.endSwipe = true }
+        withAnimation(.none) { endSwipe = true }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
             if let _ = parentViewModel.displayedTimeStacks?.first {
@@ -70,7 +74,7 @@ extension TimeStackView {
     
     private func handleSwiping(with value: GestureStateGesture<DragGesture, Bool>.Value) {
         let translation = value.translation.width
-        viewModel.offset = (viewModel.isDragging ? translation : .zero)
+        offset = (isDragging ? translation : .zero)
     }
     
     private func handleSwipeEnded(with value: GestureStateGesture<DragGesture, Bool>.Value) {
@@ -79,12 +83,12 @@ extension TimeStackView {
         let checkingStatus = (translation > 0 ? translation : -translation)
         
         func removeCard() {
-            viewModel.offset = (translation > 0 ? width : -width) * 2
-            viewModel.endSwipe = true
+            offset = (translation > 0 ? width : -width) * 2
+            endSwipe = true
         }
         
         func reset() {
-            viewModel.offset = .zero
+            offset = .zero
         }
         
         withAnimation {
