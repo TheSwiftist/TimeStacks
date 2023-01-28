@@ -1,5 +1,5 @@
 //
-//  CircularTimerViewModel.swift
+//  TimerViewModel.swift
 //  TimeStacks
 //
 //  Created by Jun Bang on 2023/01/28.
