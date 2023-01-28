@@ -17,9 +17,13 @@ struct CircularTimer: View {
     var body: some View {
         ZStack {
             CircularProgressView(viewModel: viewModel)
-            Text(viewModel.progressText)
-                .font(.largeTitle)
-                .foregroundColor(.white)
+            Button {
+                viewModel.timerTouched()
+            } label: {
+                Text(viewModel.progressText)
+                    .font(.largeTitle)
+                    .foregroundColor(.white)
+            }
         }
     }
 }
