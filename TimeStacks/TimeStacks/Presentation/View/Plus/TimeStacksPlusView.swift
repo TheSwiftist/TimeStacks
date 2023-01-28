@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct StackPlusView: View {
+struct TimeStacksPlusView: View {
     // MARK: - Properties - Private
     
     @State private var title: String = ""
@@ -16,6 +16,8 @@ struct StackPlusView: View {
     @State private var endDate = Date()
     @State private var timerTime = Date()
     private let data = StackData()
+    
+    // MARK: - Property - Internal
     
     var body: some View {
         VStack {
@@ -41,7 +43,9 @@ struct StackPlusView: View {
         }
     }
     
-    var navigationBarView: some View {
+    // MARK: - View Computation Properties - Private
+    
+    private var navigationBarView: some View {
         HStack {
             Spacer().frame(width: 30)
             Button("취소", action: {
@@ -57,7 +61,7 @@ struct StackPlusView: View {
             Spacer().frame(width: 30)
         }
     }
-    var todayDateView: some View {
+    private var todayDateView: some View {
         HStack {
             Spacer()
             Text("2022.11.13")
@@ -65,7 +69,7 @@ struct StackPlusView: View {
             Spacer().frame(width: 15)
         }
     }
-    var stackTitleView: some View {
+    private var stackTitleView: some View {
         HStack {
             Spacer().frame(width: 15)
             Text("Stack Title")
@@ -73,14 +77,14 @@ struct StackPlusView: View {
             Spacer()
         }
     }
-    var stackTitleInputView: some View {
+    private var stackTitleInputView: some View {
         TextField("Stack의 title을 입력해 주세요.", text: $title)
             .textFieldStyle(RoundedBorderTextFieldStyle())
             .textCase(.none)
             .padding(.horizontal)
             .font(.system(size: 13))
     }
-    var timerSelectionView: some View {
+    private var timerSelectionView: some View {
         HStack {
             Spacer().frame(width: 15)
             Text("Timer")
@@ -98,7 +102,7 @@ struct StackPlusView: View {
             Spacer()
         }
     }
-    var timerVersionView: some View {
+    private var timerVersionView: some View {
         Group {
             HStack {
                 Spacer().frame(width: 15)
@@ -120,12 +124,12 @@ struct StackPlusView: View {
                 .labelsHidden()
         }
     }
-    var clockVersionView: some View {
+    private var clockVersionView: some View {
         // TODO
         Text("clock version")
             .font(.system(size: 15).weight(.heavy))
     }
-    var completionButtonView: some View {
+    private var completionButtonView: some View {
         HStack {
             Spacer()
             Button("완료", action: {
@@ -134,7 +138,7 @@ struct StackPlusView: View {
             Spacer().frame(width: 20)
         }
     }
-    var stackListView: some View {
+    private var stackListView: some View {
         List(data.stacks) { stack in
             StackTableRow(stack: stack)
         }
@@ -170,6 +174,6 @@ struct StackTableRow: View {
 
 struct StackPlusView_Previews: PreviewProvider {
     static var previews: some View {
-        StackPlusView()
+        TimeStacksPlusView()
     }
 }

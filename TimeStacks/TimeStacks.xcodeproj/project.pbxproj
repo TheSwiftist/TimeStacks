@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9CBFDA422985159400A07702 /* StackModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFDA412985159400A07702 /* StackModel.swift */; };
-		9CBFDA44298515A800A07702 /* StackPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFDA43298515A800A07702 /* StackPlusView.swift */; };
+		9CBFDA44298515A800A07702 /* TimeStacksPlusView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFDA43298515A800A07702 /* TimeStacksPlusView.swift */; };
+		9CBFDA482985196000A07702 /* TimeStacksPlusViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CBFDA472985196000A07702 /* TimeStacksPlusViewModel.swift */; };
 		ED1BF2A12923C57200F4D731 /* TimeStacksMainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED1BF2A02923C57200F4D731 /* TimeStacksMainViewModel.swift */; };
 		ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AC2917D890004E29F7 /* TimeStackView.swift */; };
 		ED5775AF2917DB42004E29F7 /* TimeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */; };
@@ -21,7 +22,8 @@
 
 /* Begin PBXFileReference section */
 		9CBFDA412985159400A07702 /* StackModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackModel.swift; sourceTree = "<group>"; };
-		9CBFDA43298515A800A07702 /* StackPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StackPlusView.swift; sourceTree = "<group>"; };
+		9CBFDA43298515A800A07702 /* TimeStacksPlusView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksPlusView.swift; sourceTree = "<group>"; };
+		9CBFDA472985196000A07702 /* TimeStacksPlusViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksPlusViewModel.swift; sourceTree = "<group>"; };
 		ED1BF2A02923C57200F4D731 /* TimeStacksMainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksMainViewModel.swift; sourceTree = "<group>"; };
 		ED5775AC2917D890004E29F7 /* TimeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackView.swift; sourceTree = "<group>"; };
 		ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackViewModel.swift; sourceTree = "<group>"; };
@@ -48,7 +50,24 @@
 			isa = PBXGroup;
 			children = (
 				9CBFDA412985159400A07702 /* StackModel.swift */,
-				9CBFDA43298515A800A07702 /* StackPlusView.swift */,
+				9CBFDA43298515A800A07702 /* TimeStacksPlusView.swift */,
+			);
+			path = Plus;
+			sourceTree = "<group>";
+		};
+		9CBFDA45298518E600A07702 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				ED1BF2A02923C57200F4D731 /* TimeStacksMainViewModel.swift */,
+				ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		9CBFDA462985192400A07702 /* Plus */ = {
+			isa = PBXGroup;
+			children = (
+				9CBFDA472985196000A07702 /* TimeStacksPlusViewModel.swift */,
 			);
 			path = Plus;
 			sourceTree = "<group>";
@@ -58,7 +77,6 @@
 			children = (
 				9CBFDA402985158000A07702 /* Plus */,
 				EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */,
-				EDA0BC3E29101930009B01A3 /* TimeStacksMainView.swift */,
 				EDA0BC4B2910193D009B01A3 /* Main */,
 			);
 			path = View;
@@ -67,8 +85,8 @@
 		ED1BF29F2923C55600F4D731 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				ED1BF2A02923C57200F4D731 /* TimeStacksMainViewModel.swift */,
-				ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */,
+				9CBFDA462985192400A07702 /* Plus */,
+				9CBFDA45298518E600A07702 /* Main */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -136,6 +154,7 @@
 		EDA0BC4B2910193D009B01A3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				EDA0BC3E29101930009B01A3 /* TimeStacksMainView.swift */,
 				ED5775AC2917D890004E29F7 /* TimeStackView.swift */,
 			);
 			path = Main;
@@ -212,9 +231,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				EDA0BC3F29101930009B01A3 /* TimeStacksMainView.swift in Sources */,
+				9CBFDA482985196000A07702 /* TimeStacksPlusViewModel.swift in Sources */,
 				ED5775AF2917DB42004E29F7 /* TimeStackViewModel.swift in Sources */,
 				ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */,
-				9CBFDA44298515A800A07702 /* StackPlusView.swift in Sources */,
+				9CBFDA44298515A800A07702 /* TimeStacksPlusView.swift in Sources */,
 				ED5775B329193493004E29F7 /* View+Extensions.swift in Sources */,
 				ED1BF2A12923C57200F4D731 /* TimeStacksMainViewModel.swift in Sources */,
 				EDA0BC3D29101930009B01A3 /* TimeStacksApp.swift in Sources */,
