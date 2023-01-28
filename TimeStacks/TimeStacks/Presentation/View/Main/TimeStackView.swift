@@ -41,7 +41,7 @@ struct TimeStackView: View {
                 .shadow(radius: 20)
                 .offset(y: -topOffset)
                 
-                CircularTimer(viewModel: CircularTimerViewModel(increment: 0.01, duration: 1))
+                TimerView(viewModel: TimerViewModel(increment: 0.01, duration: 1))
                     .frame(width: width/3, height: height/2, alignment: .trailing)
                     .offset(x: 100, y: -topOffset)
             }

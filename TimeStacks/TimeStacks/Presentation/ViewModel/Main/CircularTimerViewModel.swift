@@ -8,7 +8,7 @@
 import SwiftUI
 import Combine
 
-final class CircularTimerViewModel: ObservableObject {
+final class TimerViewModel: ObservableObject {
     // MARK: - Private Properties
     
     private var isRunning: Bool = false
@@ -36,7 +36,7 @@ final class CircularTimerViewModel: ObservableObject {
 
 // MARK: - Private Methods
 
-private extension CircularTimerViewModel {
+private extension TimerViewModel {
     func setupTimer(_ increment: Double, _ totalDuration: Double) {
         timer
             .filter { _ in self.isRunning == true }
@@ -70,7 +70,7 @@ private extension CircularTimerViewModel {
 
 // MARK: - Error
 
-private extension CircularTimerViewModel {
+private extension TimerViewModel {
     enum TimerError: Error {
         case reachedDuration
     }

@@ -7,16 +7,16 @@
 
 import SwiftUI
 
-struct CircularTimer: View {
-    @ObservedObject private var viewModel: CircularTimerViewModel
+struct TimerView: View {
+    @ObservedObject private var viewModel: TimerViewModel
     
-    init(viewModel: CircularTimerViewModel) {
+    init(viewModel: TimerViewModel) {
         self.viewModel = viewModel
     }
     
     var body: some View {
         ZStack {
-            CircularProgressView()
+            TimerProgressView()
                 .environmentObject(viewModel)
             Button {
                 viewModel.timerTouched()
@@ -29,9 +29,9 @@ struct CircularTimer: View {
     }
 }
 
-private extension CircularTimer {
-    struct CircularProgressView: View {
-        @EnvironmentObject private var viewModel: CircularTimerViewModel
+private extension TimerView {
+    struct TimerProgressView: View {
+        @EnvironmentObject private var viewModel: TimerViewModel
         
         var body: some View {
             ZStack {
