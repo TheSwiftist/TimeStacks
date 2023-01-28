@@ -41,9 +41,9 @@ private extension CircularTimerViewModel {
         timer
             .filter { _ in self.isRunning == true }
             .tryMap({ _ in
-                try self.getNewProgressTime(currentTime: self.progress,
-                                            incrementTime: increment,
-                                            limitDuration: totalDuration)
+                try self.calculateProgress(currentTime: self.progress,
+                                           incrementTime: increment,
+                                           limitDuration: totalDuration)
             })
             .sink(receiveCompletion: { [weak self] completion in
                 guard let self = self else { return }
@@ -51,20 +51,16 @@ private extension CircularTimerViewModel {
                 default:
                     self.timer.upstream.connect().cancel()
                 }
-            }, receiveValue: { [weak self] newValue in
+            }, receiveValue: { [weak self] progress in
                 guard let self = self else { return }
-                self.progressText = self.convertToTimeText(time: newValue)
-                self.progress = newValue
+                self.progressText = progress.textFormat
+                self.progress = progress
                 self.isRunning = true
             })
             .store(in: &subscriptions)
     }
     
-    func convertToTimeText(time: Double) -> String {
-        return "\(Int((1-time)*100))"
-    }
-    
-    func getNewProgressTime(currentTime: Double, incrementTime: Double, limitDuration: Double) throws -> Double {
+    func calculateProgress(currentTime: Double, incrementTime: Double, limitDuration: Double) throws -> Double {
         guard currentTime < limitDuration else {
             throw TimerError.reachedDuration
         }
@@ -77,5 +73,13 @@ private extension CircularTimerViewModel {
 private extension CircularTimerViewModel {
     enum TimerError: Error {
         case reachedDuration
+    }
+}
+
+// MARK: - Double Extension
+
+fileprivate extension Double {
+    var textFormat: String {
+        return "\(Int((1-self)*100))"
     }
 }
