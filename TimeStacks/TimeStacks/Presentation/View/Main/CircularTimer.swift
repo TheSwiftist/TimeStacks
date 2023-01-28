@@ -16,7 +16,8 @@ struct CircularTimer: View {
     
     var body: some View {
         ZStack {
-            CircularProgressView(viewModel: viewModel)
+            CircularProgressView()
+                .environmentObject(viewModel)
             Button {
                 viewModel.timerTouched()
             } label: {
@@ -30,11 +31,7 @@ struct CircularTimer: View {
 
 private extension CircularTimer {
     struct CircularProgressView: View {
-        @ObservedObject private var viewModel: CircularTimerViewModel
-        
-        init(viewModel: CircularTimerViewModel) {
-            self.viewModel = viewModel
-        }
+        @EnvironmentObject private var viewModel: CircularTimerViewModel
         
         var body: some View {
             ZStack {
