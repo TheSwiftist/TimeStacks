@@ -40,6 +40,10 @@ struct TimeStackView: View {
                 .cornerRadius(20)
                 .shadow(radius: 20)
                 .offset(y: -topOffset)
+                
+                CircularTimer()
+                    .frame(width: width/3, height: height/2, alignment: .trailing)
+                    .offset(x: 100, y: -topOffset)
             }
         }
         .offset(x: viewModel.offset)
@@ -51,6 +55,7 @@ struct TimeStackView: View {
                 })
                 .onChanged({ value in
                     handleSwiping(with: value)
+                    // TODO: - 여기서 팝업 띄우기 (삭제할건지 완료 처리 할건지)
                 })
                 .onEnded({ value in
                     handleSwipeEnded(with: value)
