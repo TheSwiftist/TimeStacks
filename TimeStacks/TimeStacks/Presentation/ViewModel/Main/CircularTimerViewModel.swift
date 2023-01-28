@@ -9,21 +9,25 @@ import SwiftUI
 import Combine
 
 final class CircularTimerViewModel: ObservableObject {
-    private enum TimerError: Error {
-        case reachedDuration
-    }
+    // MARK: - Private Properties
+    
+    private var isRunning: Bool = false
+    private var subscriptions = Set<AnyCancellable>()
+    private var timer = Timer.publish(every: 1, on: .main, in: .common)
+        .autoconnect()
+    
+    // MARK: - Output
     
     @Published var progressText: String = "Press Me"
     @Published var progress: Double = 0.0
     
-    private var isRunning: Bool = false
-    private var timer = Timer.publish(every: 1, on: .main, in: .common)
-        .autoconnect()
-    private var subscriptions = Set<AnyCancellable>()
+    // MARK: - Initializer
     
-    init() {
-        setupTimer(increment: 0.01, totalDuration: 1)
+    init(increment: Double, duration: Double) {
+        setupTimer(increment, duration)
     }
+    
+    // MARK: - Input
     
     func timerTouched() {
         isRunning.toggle()
@@ -33,7 +37,7 @@ final class CircularTimerViewModel: ObservableObject {
 // MARK: - Private Methods
 
 private extension CircularTimerViewModel {
-    func setupTimer(increment: Double, totalDuration: Double) {
+    func setupTimer(_ increment: Double, _ totalDuration: Double) {
         timer
             .filter { _ in self.isRunning == true }
             .tryMap({ _ in
@@ -65,5 +69,13 @@ private extension CircularTimerViewModel {
             throw TimerError.reachedDuration
         }
         return currentTime + incrementTime
+    }
+}
+
+// MARK: - Error
+
+private extension CircularTimerViewModel {
+    enum TimerError: Error {
+        case reachedDuration
     }
 }
