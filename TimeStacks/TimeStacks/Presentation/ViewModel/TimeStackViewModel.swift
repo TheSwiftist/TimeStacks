@@ -9,8 +9,8 @@ import SwiftUI
 
 final class TimeStackViewModel: ObservableObject, Identifiable {
     var id = UUID().uuidString
-    let title: String
-    let duration: Double
+    private let title: String
+    private let duration: Double
     
     @Published var offset: CGFloat = 0
     @Published var endSwipe: Bool = false
