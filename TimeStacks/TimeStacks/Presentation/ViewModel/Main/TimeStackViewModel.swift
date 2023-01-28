@@ -8,12 +8,16 @@
 import SwiftUI
 
 final class TimeStackViewModel: ObservableObject, Identifiable {
-    var id = UUID().uuidString
-    private let title: String
-    private let duration: Double
+    // MARK: - Internal Properties
     
+    var id = UUID().uuidString
     @Published var offset: CGFloat = 0
     @Published var endSwipe: Bool = false
+    
+    // MARK: - Private Properties
+    
+    private let title: String
+    private let duration: Double
     
     init(title: String, duration:Double) {
         self.title = title
