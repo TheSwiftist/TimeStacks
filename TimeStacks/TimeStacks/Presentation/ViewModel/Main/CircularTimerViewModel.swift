@@ -18,7 +18,7 @@ final class TimerViewModel: ObservableObject {
     
     // MARK: - Output
     
-    @Published var progressText: String = "Press Me"
+    @Published var progressText: String = "시작"
     @Published var progress: Double = 0.0
     
     // MARK: - Initializer
