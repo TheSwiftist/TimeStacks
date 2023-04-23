@@ -14,6 +14,8 @@
 		ED5775AD2917D890004E29F7 /* TimeStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AC2917D890004E29F7 /* TimeStackView.swift */; };
 		ED5775AF2917DB42004E29F7 /* TimeStackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */; };
 		ED5775B329193493004E29F7 /* View+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5775B229193493004E29F7 /* View+Extensions.swift */; };
+		ED6219612985264600E9C101 /* CircularTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6219602985264600E9C101 /* CircularTimer.swift */; };
+		ED62196329852DD900E9C101 /* CircularTimerViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED62196229852DD900E9C101 /* CircularTimerViewModel.swift */; };
 		EDA0BC3D29101930009B01A3 /* TimeStacksApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */; };
 		EDA0BC3F29101930009B01A3 /* TimeStacksMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDA0BC3E29101930009B01A3 /* TimeStacksMainView.swift */; };
 		EDA0BC4129101933009B01A3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EDA0BC4029101933009B01A3 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		ED5775AC2917D890004E29F7 /* TimeStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackView.swift; sourceTree = "<group>"; };
 		ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStackViewModel.swift; sourceTree = "<group>"; };
 		ED5775B229193493004E29F7 /* View+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View+Extensions.swift"; sourceTree = "<group>"; };
+		ED6219602985264600E9C101 /* CircularTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimer.swift; sourceTree = "<group>"; };
+		ED62196229852DD900E9C101 /* CircularTimerViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircularTimerViewModel.swift; sourceTree = "<group>"; };
 		EDA0BC3929101930009B01A3 /* TimeStacks.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeStacks.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EDA0BC3C29101930009B01A3 /* TimeStacksApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksApp.swift; sourceTree = "<group>"; };
 		EDA0BC3E29101930009B01A3 /* TimeStacksMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TimeStacksMainView.swift; sourceTree = "<group>"; };
@@ -60,6 +64,7 @@
 			children = (
 				ED1BF2A02923C57200F4D731 /* TimeStacksMainViewModel.swift */,
 				ED5775AE2917DB42004E29F7 /* TimeStackViewModel.swift */,
+				ED62196229852DD900E9C101 /* CircularTimerViewModel.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -156,6 +161,7 @@
 			children = (
 				EDA0BC3E29101930009B01A3 /* TimeStacksMainView.swift */,
 				ED5775AC2917D890004E29F7 /* TimeStackView.swift */,
+				ED6219602985264600E9C101 /* CircularTimer.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -230,6 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ED6219612985264600E9C101 /* CircularTimer.swift in Sources */,
+				ED62196329852DD900E9C101 /* CircularTimerViewModel.swift in Sources */,
 				EDA0BC3F29101930009B01A3 /* TimeStacksMainView.swift in Sources */,
 				9CBFDA482985196000A07702 /* TimeStacksPlusViewModel.swift in Sources */,
 				ED5775AF2917DB42004E29F7 /* TimeStackViewModel.swift in Sources */,
