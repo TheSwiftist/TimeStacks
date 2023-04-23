@@ -66,8 +66,8 @@ struct TimeStackView: View {
 
 // MARK: - Private Methods
 
-extension TimeStackView {
-    private func endSwipeActions() {
+private extension TimeStackView {
+    func endSwipeActions() {
         withAnimation(.none) { viewModel.endSwipe = true }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
