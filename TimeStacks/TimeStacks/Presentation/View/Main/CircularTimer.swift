@@ -40,7 +40,7 @@ private extension TimerView {
                     .opacity(0.3)
                     .foregroundColor(.white)
                 Circle()
-                    .trim(from: 0, to: CGFloat(min(viewModel.progress, 1)))
+                    .trim(from: 0, to: CGFloat(min(viewModel.progressedTime, 1)))
                     .stroke(style: StrokeStyle(lineWidth: 20, lineCap: .round, lineJoin: .round))
                     .foregroundColor(.green)
                     .rotationEffect(Angle(degrees: 270))
