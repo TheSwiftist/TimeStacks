@@ -46,13 +46,13 @@ private extension TimerViewModel {
                                            limitDuration: totalDuration)
             })
             .sink(receiveCompletion: { [weak self] completion in
-                guard let self = self else { return }
+                guard let self else { return }
                 switch completion {
                 default:
                     self.timer.upstream.connect().cancel()
                 }
             }, receiveValue: { [weak self] progress in
-                guard let self = self else { return }
+                guard let self else { return }
                 self.progressText = progress.textFormat
                 self.progress = progress
                 self.isRunning = true
