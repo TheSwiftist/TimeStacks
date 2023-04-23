@@ -19,7 +19,7 @@ final class TimerViewModel: ObservableObject {
     // MARK: - Output
     
     @Published var progressText: String = "시작"
-    @Published var progress: Double = 0.0
+    @Published var progressedTime: Double = 0.0
     
     // MARK: - Initializer
     
@@ -41,7 +41,7 @@ private extension TimerViewModel {
         timer
             .filter { _ in self.isRunning == true }
             .tryMap({ _ in
-                try self.calculateProgress(currentTime: self.progress,
+                try self.calculateProgress(currentTime: self.progressedTime,
                                            incrementTime: increment,
                                            limitDuration: totalDuration)
             })
@@ -51,10 +51,10 @@ private extension TimerViewModel {
                 default:
                     self.timer.upstream.connect().cancel()
                 }
-            }, receiveValue: { [weak self] progress in
+            }, receiveValue: { [weak self] progressedTime in
                 guard let self else { return }
-                self.progressText = progress.textFormat
-                self.progress = progress
+                self.progressText = progressedTime.textFormat
+                self.progressedTime = progressedTime
                 self.isRunning = true
             })
             .store(in: &subscriptions)
