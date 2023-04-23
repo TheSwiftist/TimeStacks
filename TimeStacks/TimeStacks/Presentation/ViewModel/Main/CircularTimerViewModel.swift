@@ -78,7 +78,7 @@ private extension TimerViewModel {
 
 // MARK: - Double Extension
 
-fileprivate extension Double {
+private extension Double {
     var textFormat: String {
         return "\(Int((1 - self) * 100))"
     }
