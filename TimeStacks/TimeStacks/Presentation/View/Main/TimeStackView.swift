@@ -71,8 +71,8 @@ extension TimeStackView {
         withAnimation(.none) { viewModel.endSwipe = true }
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            if let _ = parentViewModel.displayedTimeStacks?.first {
-                let _ = withAnimation {
+            if parentViewModel.displayedTimeStacks?.isEmpty == false {
+                let _ = withAnimation() {
                     parentViewModel.displayedTimeStacks?.removeFirst()
                 }
             }
